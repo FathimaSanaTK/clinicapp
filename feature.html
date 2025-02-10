@@ -30,6 +30,26 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Quick remedy css-->
+    <style>
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #remedy {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
+        }
+        #warning {
+            margin-top: 10px;
+            color: red;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,7 +68,7 @@
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>CartWalk Street, New York, USA</small>
+                    <small>Mother Teresa Rd, Palarivattom, Kochi</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-primary me-2"></small>
@@ -88,7 +108,7 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="feature.html" class="dropdown-item active">Feature</a>
+                        <a href="feature.html" class="dropdown-item active">Relief Assist</a>
                         <a href="team.html" class="dropdown-item">Our Doctor</a>
                         <a href="appointment.html" class="dropdown-item">Appointment</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
@@ -106,12 +126,12 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Feature</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Relief Assist</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb text-uppercase mb-0">
                     <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                     <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Feature</li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Relief Assist</li>
                 </ol>
             </nav>
         </div>
@@ -120,6 +140,43 @@
 
 
     <!-- Feature Start -->
+
+<!-- Quich remedy section start-->
+<h2>Quick Remedy Suggestion</h2>
+<p>Enter your disease to get a temporary remedy suggestion.</p>
+<input type="text" id="diseaseInput" placeholder="Enter disease...">
+<button onclick="suggestRemedy()">Get Remedy</button>
+
+<div id="remedy"></div>
+<div id="warning"></div>
+
+<script>
+    function suggestRemedy() {
+        let disease = document.getElementById("diseaseInput").value.toLowerCase();
+        let remedyText = "";
+        
+        // Simple remedy suggestions
+        let remedies = {
+            "cold": "Drink warm water with honey and lemon.",
+            "headache": "Apply a cold or warm compress to your forehead.",
+            "cough": "Gargle with salt water and drink herbal tea.",
+            "fever": "Stay hydrated and rest well.",
+            "indigestion": "Drink ginger tea or eat yogurt."
+        };
+
+        if (remedies[disease]) {
+            remedyText = `Suggested Remedy: ${remedies[disease]}`;
+        } else {
+            remedyText = "No specific remedy found. Try resting and staying hydrated.";
+        }
+
+        document.getElementById("remedy").innerText = remedyText;
+        document.getElementById("warning").innerText = 
+            "⚠️ This remedy is for temporary relief. Please consult a doctor for proper medical advice.";
+    }
+</script>
+<!-- Quick remedy section end-->
+
     <div class="container-fluid bg-primary overflow-hidden px-lg-0" style="margin: 6rem 0;">
         <div class="container feature px-lg-0">
             <div class="row g-0 mx-lg-0">
@@ -186,6 +243,7 @@
     </div>
     <!-- Feature End -->
         
+    
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -193,7 +251,7 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>CartWalk Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Mother Teresa Rd, Palarivattom, Kochi</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+112 498 7543</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>medlifehealth@gmail.com</p>
                     <div class="d-flex pt-2">
